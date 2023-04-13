@@ -13,7 +13,7 @@ class notaController extends Controller
      */
     public function index()
     {
-        //
+        return "todas tus notas";
     }
 
     /**
@@ -23,7 +23,7 @@ class notaController extends Controller
      */
     public function create()
     {
-        //
+        return "ingresa los datos para crear tu nota";
     }
 
     /**
@@ -43,9 +43,9 @@ class notaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nombre)
     {
-        //
+        return "tu nota $nombre";
     }
 
     /**

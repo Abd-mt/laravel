@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\notaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('notas', [notaController::class, 'index']);
+
+Route::get('notas/create', [notaController::class, 'create']);
+
+Route::get('notas/{nombre}', [notaController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
