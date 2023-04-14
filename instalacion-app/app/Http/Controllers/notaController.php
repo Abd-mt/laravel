@@ -43,9 +43,9 @@ class notaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($nombre)
+    public function show($notas)
     {
-        return "tu nota $nombre";
+        return "tu nota $notas";
     }
 
     /**

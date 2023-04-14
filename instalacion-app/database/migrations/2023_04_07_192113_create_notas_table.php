@@ -18,7 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('texto');
-            $table->dateTimeTz('hora', $precision = 0);
+            $table->enum('importancia',['poco importante','importante','muy importante']);
+            $table->dateTimeTz('hora', $precision = 0)->nullable();
             $table->timestamps();
         });
     }
