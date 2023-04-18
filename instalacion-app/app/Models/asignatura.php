@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class asignatura extends Model
 {
     use HasFactory;
+    public function temas() {
+        return $this->hasMany(tema::class,'id_asignatura');
+    }
     protected $fillable =[
-        'carrera',
-        'semestre',
-        'nombre',
-        'maestro'
+        
+        'nombre'
 
 
     ];

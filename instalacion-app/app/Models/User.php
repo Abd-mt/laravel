@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+    public function nota() {
+        return $this->hasMany(nota::class,'id_usuario');
+    }
+    protected $fillable =[
+        'name',
+        'email',
+        'email_verified_at',
+        'password',
+        'matricula',
+        'carrera'
+        
+
+
+    ];
 }
