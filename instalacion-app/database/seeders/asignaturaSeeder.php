@@ -15,8 +15,11 @@ class asignaturaSeeder extends Seeder
      */
     public function run()
     {
-       DB::table('asignaturas')->insert(['nombre'=>'UXD','nombre'=>'PROGRAMACIÓN LÓGICA Y FUNCIONAL','nombre'=>'LOWCODE','nombre'=>'ADMINISTRACIÓN DE REDES','nombre'=>'TALLER DE INVESTIGACIÓN']);
-    
+       DB::table('asignaturas')->insert(['nombre'=>'UXD']);
+       DB::table('asignaturas')->insert(['nombre'=>'PROGRAMACIÓN LÓGICA Y FUNCIONAL']);
+       DB::table('asignaturas')->insert(['nombre'=>'LOWCODE']);
+       DB::table('asignaturas')->insert(['nombre'=>'ADMINISTRACIÓN DE REDES']);
+       DB::table('asignaturas')->insert(['nombre'=>'TALLER DE INVESTIGACIÓN']);
        
             
        

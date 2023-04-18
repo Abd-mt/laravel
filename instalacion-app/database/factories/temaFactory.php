@@ -17,10 +17,10 @@ class temaFactory extends Factory
      */
     public function definition()
     {
-        $as=asignatura::inRandomOrder();
+        $as=asignatura::inRandomOrder()->first();
         return [
             'nombre'=>$this->faker->sentence(),
-            'id_asignatura'=>$as->id(),
+            'id_asignatura'=>$as->id,
             'parcial'=>$this->faker->randomElement(['primero','segundo','tercero','cuarto','quinto','sexto']),
         ];
     }

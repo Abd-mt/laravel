@@ -12,9 +12,6 @@ class asignatura extends Model
         return $this->hasMany(tema::class,'id_asignatura');
     }
     protected $fillable =[
-        
-        'nombre'
-
-
+        'nombre',
     ];
 }
