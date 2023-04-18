@@ -18,9 +18,15 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('texto');
-            $table->enum('importancia',['poco importante','importante','muy importante']);
+            $table->string('importancia');
             $table->dateTimeTz('hora', $precision = 0)->nullable();
             $table->timestamps();
+            $table->foreignId('id_temas')
+             ->constrained('temas')
+             ->cascadeOnUpdate();
+             $table->foreignId('id_usuario')
+             ->constrained('users')
+             ->cascadeOnUpdate();
         });
     }
 

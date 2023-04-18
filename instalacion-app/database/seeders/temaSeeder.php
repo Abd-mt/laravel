@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\tema;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
 
-class UserSeeder extends Seeder
+class temaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //
-        User::factory()
-            ->count(3)
-            ->create();
+        tema::factory(20)->create();
     }
 }
