@@ -13,7 +13,7 @@ class nota extends Model
     }
 
     public function temas() {
-        return $this->belongsTo(topic::class,'id_temas');
+        return $this->belongsTo(tema::class,'id_temas');
     }
     protected $fillable =[
         'titulo',

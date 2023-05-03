@@ -19,11 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('notas', [notaController::class, 'index']);
-
-Route::get('notas/create', [notaController::class, 'create']);
-
-Route::get('notas/{nombre}', [notaController::class, 'show']);
+Route::resource("/notas", notaController::class)->middleware('auth');
+Route::redirect('nota', 'notas');
+Route::get('/notas', [notaController::class, 'index'])->name('notas.notasIndex')->middleware('auth');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -1,51 +1,51 @@
-@extends('layouts.base')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
-@section('content')
-<div class="row">
-    <div class="col-12">
-        <div>
-            <h2>Crear Tarea</h2>
-        </div>
-        <div>
-            <a href="{{route('tasks.index')}}" class="btn btn-primary">Volver</a>
-        </div>
-    </div>
+<x-app-layout>
 
-    <form action="" method="POST">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Tarea:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Tarea" >
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
-                <div class="form-group">
-                    <strong>Descripción:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Descripción..."></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
-                <div class="form-group">
-                    <strong>Fecha límite:</strong>
-                    <input type="date" name="due_date" class="form-control" id="">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
-                <div class="form-group">
-                    <strong>Estado (inicial):</strong>
-                    <select name="status" class="form-select" id="">
-                        <option value="">-- Elige el status --</option>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="En progreso">En progreso</option>
-                        <option value="Completada">Completada</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2">
-                <button type="submit" class="btn btn-primary">Crear</button>
-            </div>
+    <div >
+            <h1 class="p-4 mt-2 text-3xl font-bold text-center text-orange-300 bg-gray-800">
+                Crear Notas
+            </h1>
         </div>
+    
+    <form class="w-full max-w-lg mx-auto p-28" action="{{ url('notas') }}" method="post">
+    {!! csrf_field() !!}
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Titulo
+          </label>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" name="Palabras_clave" id="Palabras_clave">
+        </div>
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Texto
+          </label>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" name="Resumen" id="Resumen">
+        </div>
+    
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Contenido
+          </label>
+          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" name="Contenido" id="Contenido">
+        </div>
+    
+    
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            Temas
+          </label>
+          <select id="temas" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" name="temas" :value="old('temas')" required autofocus autocomplete="temas">
+        @foreach($temas as $tema)
+            <option value="{{ $tema->id }}">{{ $tema->nombre }}</option>
+        @endforeach
+    </select>
+        </div>
+      </div>
+      <!-- Agrega más campos de formulario aquí -->
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Enviar
+      </button>
     </form>
-</div>
-@endsection
+    </x-app-layout>
