@@ -16,7 +16,7 @@ class temaSeeder extends Seeder
     public function run()
     {
         tema::factory()
-            ->count(3)
+            ->count(100)
             ->create();
     }
 }

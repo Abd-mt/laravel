@@ -45,16 +45,16 @@ class NotaController extends Controller
     public function store(Request $request)
     {
         $userid=auth()->id();
-        $tema=Tema::where('name',$request->temi)
+        $tema=Tema::where('nombre',$request->temi)
             ->first();
 
         $notal=new Nota;
+        $notal->importancia=$request->importancia;
         $notal->titulo=$request->titulo;
         $notal->texto=$request->texto;
-        $notal->importancia=$request->importancia;
         $notal->hora=$request->hora;
-        $notal->User_id=$userid;
-        $notal->Tema_id=$tema->id;
+        $notal->id_usuario=$userid;
+        $notal->id_temas=$request->tema;
 
         $notal->save();
     
@@ -71,7 +71,7 @@ class NotaController extends Controller
     {
         $notas= Nota::find($id);
 
-        return view('notas.notasShow',compact('notas'));
+        return view('notas.notasShow',['notas'=>$notas]);
         //
     }
 
@@ -81,10 +81,11 @@ class NotaController extends Controller
      * @param  \App\Models\Nota  $nota
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$request)
     {
-        $notas= Nota::find($id);
 
+        $notas= Nota::find($id);
+      
         return view('notas.notasEdit',compact('notas'));
         //
     }
@@ -101,7 +102,7 @@ class NotaController extends Controller
         $notaj=Nota::find($id);
         $user_id=auth()->id();
 
-        $notaj->titulo=$request->titulo;
+        $notaj->titulo=$request->importancia;
         $notaj->resumen=$request->resumen;
         $notaj->p_clave=$request->p_clave;
         $notaj->apunte=$request->apunte;
